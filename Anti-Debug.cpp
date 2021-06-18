@@ -15,7 +15,7 @@ int main()
 
     Process32First(snapshandle, &pe32);
 
-    wstring blacklist[] = { L"notepad.exe", L"ida.exe", L"ida64.exe", L"x32dbg.exe", L"x64dbg.exe", L"ProcessHacker.exe" };
+    wstring blacklist[] = { L"ida.exe", L"ida64.exe", L"x32dbg.exe", L"x64dbg.exe", L"ProcessHacker.exe" };
 
     int len = sizeof blacklist / sizeof blacklist[0];
 
