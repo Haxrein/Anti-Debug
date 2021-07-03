@@ -2,7 +2,12 @@
 #include <Windows.h>
 #include <tlhelp32.h>
 
-using namespace std;
+using std::cout;
+using std::wcout;
+using std::wstring;
+using std::endl;
+
+
 
 int main()
 {
@@ -28,13 +33,11 @@ int main()
         {
             if (temp == blacklist[i]) {
 
-                wcout << temp << " terminated" << endl;
-
-                HANDLE process_handle;
-
-                process_handle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, pe32.th32ProcessID);
+                HANDLE process_handle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, pe32.th32ProcessID);
 
                 TerminateProcess(process_handle, 0);
+
+                wcout << temp << " terminated" << endl;
             }
         }
 
@@ -43,4 +46,6 @@ int main()
     CloseHandle(snapshandle);
     
     getchar();
+
+    return 0;
 }
